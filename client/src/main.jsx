@@ -15,8 +15,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/articles/:articleId",
-    element: <ArticlePage />
-  }
+    element: <ArticlePage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

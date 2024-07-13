@@ -1,6 +1,6 @@
 function NavBar() {
   return (
-    <div>
+    <div className="mb-12">
       <ul className="flex justify-between items-center pt-4 pb-4">
         <div className="flex gap-8 items-center">
           <div className="text-3xl">
@@ -47,7 +47,12 @@ function NavBar() {
             </svg>
           </li>
           <li>
-            <img className="rounded-full" src="https://media.licdn.com/dms/image/D5603AQESEUUnkOJWqw/profile-displayphoto-shrink_200_200/0/1712228643196?e=2147483647&v=beta&t=0MARtaHMjD6e6E-LMss3Rz_NczlECP7i2bQAZ0oa_Jg" width="32" height="32" />
+            <img
+              className="rounded-full"
+              src="https://media.licdn.com/dms/image/D5603AQESEUUnkOJWqw/profile-displayphoto-shrink_200_200/0/1712228643196?e=2147483647&v=beta&t=0MARtaHMjD6e6E-LMss3Rz_NczlECP7i2bQAZ0oa_Jg"
+              width="32"
+              height="32"
+            />
           </li>
         </div>
       </ul>

@@ -7,7 +7,7 @@ function Card(props) {
         <p>{props.desc}</p>
       </div>
       <div>
-        <img className="" src={props.img} width="160" height="146" />
+        {/* <img className="" src={props.img} width="160" height="146" /> */}
       </div>
     </div>
   );

@@ -11,8 +11,19 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {
-  res.send("Hello from server!");
+app.get("/", async (req, res) => {
+  const artilceList = await Article.find({});
+  return res.json(artilceList);
+});
+
+app.get("/articles/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const article = await Article.findById(id);
+    return res.json(article);
+  } catch {
+    return res.json({ message: "Article Not Found!!" });
+  }
 });
 
 // Mongoose Connection
