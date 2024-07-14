@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/articles",
-    element: <NavBar />,
+    element: <NavBar page="write" />,
     children: [
       {
         path: "/articles/:articleId",
