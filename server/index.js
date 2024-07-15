@@ -39,6 +39,19 @@ app.post("/articles/write", async (req, res) => {
   return res.json({ article: newArticle, message: "New Article Created!" });
 });
 
+app.put("/articles/:id/edit", async (req, res) => {
+  const { title, desc, content } = req.body;
+  const { id } = req.params;
+  const updatedArticle = {
+    author: "test",
+    title: title,
+    description: desc,
+    content: content,
+  };
+  await Article.findByIdAndUpdate(id, updatedArticle);
+  res.json({ article: updatedArticle, message: "Article Updated!" });
+});
+
 // Mongoose Connection
 mongoose
   .connect(process.env.MongoDBConn)

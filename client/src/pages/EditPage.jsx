@@ -1,13 +1,13 @@
 import NavBar from "../components/NavBar";
 import WriteArticle from "../components/WriteArticle";
 
-function WritePage() {
+function EditPage() {
   return (
     <>
       <NavBar />
-      {/* <WriteArticle /> */}
+      {/* <WriteArticle edit={true} /> */}
     </>
   );
 }
 
-export default WritePage;
+export default EditPage;

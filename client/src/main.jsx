@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ArticlePage from "./pages/ArticlePage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import WritePage from "./pages/WritePage.jsx";
+import EditPage from "./pages/EditPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/articles/write",
     element: <WritePage />,
+  },
+  {
+    path: "/articles/:articleId/edit",
+    element: <EditPage />,
   },
 ]);
 

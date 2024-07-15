@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function WriteArticle({ publishClicked }) {
+function WriteArticle({ publishClicked, mode }) {
   const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
+  const { articleId } = useParams();
 
   const [articleData, setArticleData] = useState({
     title: "",
@@ -23,15 +24,38 @@ function WriteArticle({ publishClicked }) {
   }
 
   useEffect(() => {
-    if (publishClicked) {
-      axios
-        .post(API_URL + "/articles/write", articleData)
-        .then(() => console.log("New Article Created!"))
-        .catch((err) => console.log(err));
+    if (publishClicked && articleData.title) {
+      if (mode === "write") {
+        axios
+          .post(API_URL + "/articles/write", articleData)
+          .then(() => console.log("New Article Created!"))
+          .catch((err) => console.log(err));
+      } else if (mode === "edit") {
+        axios
+          .put(`${API_URL}/articles/${articleId}/edit`, articleData)
+          .then(() => console.log("Article Updated!"))
+          .catch((err) => console.log(err));
+      }
 
       navigate("/");
     }
   }, [publishClicked]);
+
+  // When edit clicked, populate the current data for that article
+  useEffect(() => {
+    if (mode === "edit") {
+      axios
+        .get(`${API_URL}/articles/${articleId}`)
+        .then((response) =>
+          setArticleData({
+            title: response.data.title,
+            desc: response.data.description,
+            content: response.data.content,
+          })
+        )
+        .catch((err) => console.log(err));
+    }
+  }, []);
 
   return (
     <div className="flex flex-col items-center text-xl place-content-center">
