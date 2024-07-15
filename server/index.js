@@ -52,6 +52,12 @@ app.put("/articles/:id/edit", async (req, res) => {
   res.json({ article: updatedArticle, message: "Article Updated!" });
 });
 
+app.delete("/articles/:id", async (req, res) => {
+  const { id } = req.params;
+  await Article.findByIdAndDelete(id);
+  res.send("Article Deleted!!");
+});
+
 // Mongoose Connection
 mongoose
   .connect(process.env.MongoDBConn)
