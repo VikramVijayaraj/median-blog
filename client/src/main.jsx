@@ -6,8 +6,7 @@ import "./index.css";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ArticlePage from "./pages/ArticlePage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import WriteArticle from "./components/WriteArticle.jsx";
-import NavBar from "./components/NavBar.jsx";
+import WritePage from "./pages/WritePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,19 +14,17 @@ const router = createBrowserRouter([
     element: <HomePage />,
     errorElement: <NotFoundPage />,
   },
+  // {
+  //   path: "/articles",
+  //   element: <NavBar page="write" />,
+  // },
   {
-    path: "/articles",
-    element: <NavBar page="write" />,
-    children: [
-      {
-        path: "/articles/:articleId",
-        element: <ArticlePage />,
-      },
-      {
-        path: "/articles/write",
-        element: <WriteArticle />,
-      },
-    ],
+    path: "/articles/:articleId",
+    element: <ArticlePage />,
+  },
+  {
+    path: "/articles/write",
+    element: <WritePage />,
   },
 ]);
 

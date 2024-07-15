@@ -3,9 +3,10 @@ import Article from "../components/Article";
 
 function ArticlePage() {
   return (
-    <section>
+    <>
+      <NavBar />
       <Article />
-    </section>
+    </>
   );
 }
 

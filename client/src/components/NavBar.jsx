@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import WriteArticle from "./WriteArticle";
 
 function NavBar({ page }) {
   const location = useLocation();
   const { pathname } = location;
-  const [isWriting, setIsWriting] = useState(false);
+  const [isWritingPage, setIsWritingPage] = useState(false);
+  const [publishButton, setPublishButton] = useState(false);
 
   useEffect(() => {
     if (pathname === "/articles/write") {
-      setIsWriting(true);
+      setIsWritingPage(true);
     }
   }, []);
 
-  // function handleClick() {
-
-  // }
+  function handleClick() {
+    setPublishButton(true);
+  }
 
   return (
     <>
@@ -33,8 +35,11 @@ function NavBar({ page }) {
             />
           </div>
           <div className="flex gap-8 items-center">
-            {isWriting ? (
-              <button className="bg-green-700 text-sm p-1 rounded-full w-20">
+            {isWritingPage ? (
+              <button
+                onClick={handleClick}
+                className="bg-green-700 text-sm p-1 rounded-full w-20 text-white"
+              >
                 Publish
               </button>
             ) : (
@@ -87,7 +92,7 @@ function NavBar({ page }) {
       </div>
 
       {/* Children */}
-      <Outlet />
+      {isWritingPage && <WriteArticle publishClicked={publishButton} />}
     </>
   );
 }

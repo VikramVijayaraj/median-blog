@@ -26,6 +26,19 @@ app.get("/articles/:id", async (req, res) => {
   }
 });
 
+app.post("/articles/write", async (req, res) => {
+  const { title, desc, content } = req.body;
+  const newArticle = new Article({
+    author: "test",
+    title: title,
+    description: desc,
+    content: content,
+  });
+  await newArticle.save();
+  console.log(newArticle);
+  return res.json({ article: newArticle, message: "New Article Created!" });
+});
+
 // Mongoose Connection
 mongoose
   .connect(process.env.MongoDBConn)
