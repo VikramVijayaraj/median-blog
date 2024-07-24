@@ -8,6 +8,7 @@ import ArticlePage from "./pages/ArticlePage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import WritePage from "./pages/WritePage.jsx";
 import EditPage from "./pages/EditPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,10 +32,14 @@ const router = createBrowserRouter([
     path: "/articles/:articleId/edit",
     element: <EditPage />,
   },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  // </React.StrictMode>
 );

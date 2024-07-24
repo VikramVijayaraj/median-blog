@@ -58,29 +58,29 @@ function WriteArticle({ publishClicked, mode }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center text-xl place-content-center">
+    <div className="flex flex-col items-center text-md md:text-lg lg:text-xl place-content-center">
       <textarea
         onChange={handleChange}
-        className="resize-none mb-5 focus:outline-none"
+        className="resize-none mb-5 focus:outline-none w-11/12 md:w-9/12 lg:w-1/2"
         placeholder="Your title..."
-        cols="70"
+        // cols="70"
         rows="2"
         name="title"
         value={articleData.title}
       />
       <textarea
         onChange={handleChange}
-        className="resize-none mb-5 focus:outline-none"
+        className="resize-none mb-5 focus:outline-none w-11/12 md:w-9/12 lg:w-1/2"
         placeholder="Your description..."
-        cols="70"
+        // cols="70"
         name="desc"
         value={articleData.desc}
       />
       <textarea
         onChange={handleChange}
-        className="resize-none mb-5 focus:outline-none"
+        className="resize-none mb-5 focus:outline-none w-11/12 md:w-9/12 lg:w-1/2"
         placeholder="Tell your story..."
-        cols="70"
+        // cols="70"
         rows="300"
         name="content"
         value={articleData.content}

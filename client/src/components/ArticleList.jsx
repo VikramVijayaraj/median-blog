@@ -15,7 +15,7 @@ function ArticleList() {
   }, []);
 
   return (
-    <div className="pl-60 pr-60">
+    <div className="p-0 lg:pl-60 lg:pr-60">
       <h1 className="p-4 text-xl font-mono text-slate-400">Today's picks</h1>
       <div>
         {allArticles.map((article) => (
