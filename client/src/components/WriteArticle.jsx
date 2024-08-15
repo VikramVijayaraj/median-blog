@@ -28,12 +28,12 @@ function WriteArticle({ publishClicked, mode }) {
       if (mode === "write") {
         axios
           .post(API_URL + "/articles/write", articleData)
-          .then(() => console.log("New Article Created!"))
+          .then(() => alert("New Article Created!"))
           .catch((err) => console.log(err));
       } else if (mode === "edit") {
         axios
           .put(`${API_URL}/articles/${articleId}/edit`, articleData)
-          .then(() => console.log("Article Updated!"))
+          .then(() => alert("Article Updated!"))
           .catch((err) => console.log(err));
       }
 

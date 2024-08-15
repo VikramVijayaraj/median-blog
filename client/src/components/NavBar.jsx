@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import WriteArticle from "./WriteArticle";
 
@@ -32,11 +32,11 @@ function NavBar() {
                 <Link to="/">Median</Link>
               </li>
             </div>
-            <input
+            {/* <input
               type="text"
               className="bg-slate-100 rounded-full pt-1 pb-1 p-3 lg:w-auto md:w-auto w-20"
               placeholder="search"
-            />
+            /> */}
           </div>
           <div className="flex gap-8 items-center">
             {isWritingPage || isEditingPage ? (
@@ -86,7 +86,7 @@ function NavBar() {
             <li>
               <img
                 className="rounded-full"
-                src="https://media.licdn.com/dms/image/D5603AQESEUUnkOJWqw/profile-displayphoto-shrink_200_200/0/1712228643196?e=2147483647&v=beta&t=0MARtaHMjD6e6E-LMss3Rz_NczlECP7i2bQAZ0oa_Jg"
+                src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1723704208~exp=1723704808~hmac=8185ad0bc2c201abc76e278ba012b21ef88d4e7c49b75ea744bba9a54c76b93c"
                 width="32"
                 height="32"
               />

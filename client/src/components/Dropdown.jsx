@@ -27,6 +27,7 @@ function Dropdown() {
         .catch((err) => console.log(err));
 
       navigate("/");
+      alert("Article deleted!");
     }
   }, [isDelete]);
 
@@ -49,7 +50,7 @@ function Dropdown() {
         </svg>
       </button>
       {isDropped && (
-        <div className="absolute shadow-md px-3 font-light text-gray-500">
+        <div className="absolute right-8 lg:right-auto shadow-md px-3 font-light text-gray-500 bg-white">
           <Link to={`${location.pathname}/edit`}>
             <div className="py-2">Edit Story</div>
           </Link>
